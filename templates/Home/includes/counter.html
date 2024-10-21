@@ -1,0 +1,119 @@
+<!-- Counter Section -->
+<section
+  id="counters-section"
+  class="w-full bg-gradient-to-r from-blue-50 via-blue-100 to-blue-50 py-24"
+>
+  <div class="container mx-auto">
+    <!-- Title -->
+    <h2
+      class="text-4xl font-extrabold text-gray-900 text-center mb-16 tracking-tight"
+    >
+      Swift Pages in Action
+    </h2>
+
+    <!-- Counters Grid -->
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-12">
+      <!-- Counter 1 -->
+      <div class="bg-white shadow-lg rounded-lg p-8">
+        <h3 class="text-lg font-semibold text-gray-600 mb-4">Themes in Play</h3>
+        <div
+          class="text-6xl font-extrabold text-blue-600 counter"
+          data-count="50"
+          id="themesCounter"
+        >
+          0
+        </div>
+        <!-- Counter -->
+      </div>
+
+      <!-- Counter 2 -->
+      <div class="bg-white shadow-lg rounded-lg p-8">
+        <h3 class="text-lg font-semibold text-gray-600 mb-4">
+          Portfolios in Action
+        </h3>
+        <div
+          class="text-6xl font-extrabold text-blue-600 counter"
+          data-count="1200"
+          id="portfoliosCounter"
+        >
+          0
+        </div>
+        <!-- Counter -->
+      </div>
+
+      <!-- Counter 3 -->
+      <div class="bg-white shadow-lg rounded-lg p-8">
+        <h3 class="text-lg font-semibold text-gray-600 mb-4">Users Onboard</h3>
+        <div
+          class="text-6xl font-extrabold text-blue-600 counter"
+          data-count="3000"
+          id="usersCounter"
+        >
+          0
+        </div>
+        <!-- Counter -->
+      </div>
+
+      <!-- Counter 4 -->
+      <div class="bg-white shadow-lg rounded-lg p-8">
+        <h3 class="text-lg font-semibold text-gray-600 mb-4">
+          Live Portfolios
+        </h3>
+        <div
+          class="text-6xl font-extrabold text-blue-600 counter"
+          data-count="900"
+          id="liveCounter"
+        >
+          0
+        </div>
+        <!-- Counter -->
+      </div>
+    </div>
+  </div>
+</section>
+
+{% block scripts %}
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const counters = document.querySelectorAll(".counter");
+    let started = false;
+
+    const observerOptions = {
+      root: null,
+      threshold: 0.6,
+    };
+
+    const observer = new IntersectionObserver((entries, observer) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting && !started) {
+          animateCounters();
+          started = true;
+        }
+      });
+    }, observerOptions);
+
+    const countersSection = document.querySelector("#counters-section");
+    observer.observe(countersSection);
+
+    function animateCounters() {
+      counters.forEach((counter) => {
+        const target = +counter.getAttribute("data-count");
+        let count = 0;
+        const increment = Math.ceil(target / 100);
+
+        const updateCounter = () => {
+          count += increment;
+          if (count < target) {
+            counter.innerText = count;
+            setTimeout(updateCounter, 20);
+          } else {
+            counter.innerText = target;
+          }
+        };
+
+        updateCounter();
+      });
+    }
+  });
+</script>
+{% endblock %}

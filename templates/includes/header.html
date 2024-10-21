@@ -1,0 +1,127 @@
+<header
+  class="flex items-center justify-between bg-gray-800 h-20 px-8 text-white sticky top-0 z-40"
+  style="background: linear-gradient(135deg, #354a72, #203759);"
+>
+  <div>
+    <a class="flex items-center gap-2" href="/">
+      <svg class="h-8" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+        <g xmlns="http://www.w3.org/2000/svg" fill="#D5D7DD">
+          <path
+            d="M2.881,59.625v25.604l22.175,12.803L47.23,85.229V59.625L25.056,46.822L2.881,59.625z M37.778,79.772l-12.722,7.345 l-12.723-7.345v-14.69l12.723-7.346l12.722,7.346V79.772z"
+          ></path>
+          <path
+            d="M72.556,15.759L50.381,2.957L28.206,15.76v25.605l22.175,12.803l22.175-12.803V15.759z M63.104,35.907l-12.723,7.346 l-12.722-7.346v-14.69l12.722-7.346l12.723,7.346V35.907z"
+          ></path>
+          <path
+            d="M75.707,46.822L53.531,59.625v25.604l22.175,12.803l22.175-12.803V59.625L75.707,46.822z M88.429,79.772l-12.723,7.345 l-12.723-7.345v-14.69l12.724-7.346l12.722,7.346V79.772z"
+          ></path>
+        </g>
+      </svg>
+      <span class="text-4xl font-bold" style="font-family: 'Dancing Script', cursive;">Swift Pages</span>
+    </a>
+  </div>
+
+  <nav>
+    <ul class="flex items-center gap-8">
+      <!-- Authentication check for user -->
+      {% if request.user.is_authenticated %}
+      <li>
+        <a href="/" class="hover:text-gray-300 transition duration-200">Home</a>
+      </li>
+
+      <!-- Profile Dropdown Menu -->
+      <li x-data="{ dropdownOpen: false }" class="relative">
+        <a
+          @click="dropdownOpen = !dropdownOpen"
+          @click.away="dropdownOpen = false"
+          class="flex items-center cursor-pointer gap-2"
+        >
+          <img
+            class="h-8 w-8 rounded-full object-cover"
+            src="{{user.profile.image_url}}"
+            alt="User Avatar"
+          />
+          <span>{{user.first_name}}</span>
+          <img
+            x-bind:class="dropdownOpen && 'rotate-180 duration-300'"
+            class="w-4 transition-transform duration-300"
+            src="https://img.icons8.com/small/32/777777/expand-arrow.png"
+            alt="Dropdown arrow"
+          />
+        </a>
+
+        <!-- Dropdown Menu -->
+        <div
+          x-show="dropdownOpen"
+          x-cloak
+          class="absolute right-0 mt-2 w-48 bg-white text-black shadow-md rounded-lg z-20"
+          x-transition:enter="transition ease-out duration-200"
+          x-transition:enter-start="opacity-0 scale-95"
+          x-transition:enter-end="opacity-100 scale-100"
+          x-transition:leave="transition ease-in duration-200"
+          x-transition:leave-start="opacity-100 scale-100"
+          x-transition:leave-end="opacity-0 scale-95"
+        >
+          <ul class="py-2">
+            <li>
+              <a
+                href="{% url 'profile' %}"
+                class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-gray-900 transition"
+                >My Profile</a
+              >
+            </li>
+            <li>
+              <a
+                href="#"
+                class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-gray-900 transition"
+                >Edit Profile</a
+              >
+            </li>
+            <li>
+              <a
+                href="#"
+                class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-gray-900 transition"
+                >Settings</a
+              >
+            </li>
+            <li>
+              <a
+                href="#"
+                class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-gray-900 transition"
+                >Log Out</a
+              >
+            </li>
+          </ul>
+        </div>
+      </li>
+
+      {% else %}
+      <!-- If user is not authenticated -->
+      <li>
+        <a
+          href="{% url 'account_login' %}"
+          class="hover:text-gray-300 transition duration-200"
+          >Login</a
+        >
+      </li>
+      <li>
+        <a
+          href="{% url 'account_signup' %}"
+          class="relative inline-block px-6 py-2 text-white bg-blue-500 rounded-md overflow-hidden transition-all duration-300 ease-in-out hover:bg-sky-400 active:scale-95 active:bg-sky-500"
+        >
+          <span class="relative z-10 flex items-center gap-2">
+            Get Started
+            <!-- Arrow that moves on hover -->
+            <span class="transform transition-transform duration-200 hover:translate-x-2">
+              →
+            </span>
+          </span>
+          <span
+            class="absolute inset-0 bg-blue-600 transition-transform transform -translate-x-full hover:translate-x-0 duration-200"
+          ></span>
+        </a>
+      </li>
+      {% endif %}
+    </ul>
+  </nav>
+</header>

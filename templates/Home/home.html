@@ -1,0 +1,151 @@
+{% extends 'layouts/blank.html' %}
+{% load static %}
+
+{% block title %}Swift Pages{% endblock %}
+
+{% block head %}
+<!-- AOS CSS -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" />
+<!-- AOS JS -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+{% endblock %}
+
+{% block content %}
+
+{% comment %} Hero {% endcomment %}
+<section class="text-gray-600 body-font bg-orange-100">
+  <!-- Container for Hero Section -->
+  <div
+    class="container mx-auto flex px-5 py-12 md:flex-row flex-col items-center"
+  >
+    <!-- Left Side: Hero Text -->
+    <div
+      class="lg:flex-grow md:w-1/2 lg:pr-24 md:pr-16 flex flex-col md:items-start md:text-left mb-16 md:mb-0 items-center text-center"
+    >
+      <h1
+        class="title-font sm:text-5xl text-4xl mb-6 font-bold text-gray-900 transition-transform duration-500 hover:scale-105"
+        style="will-change: transform"
+      >
+        Create Your Stunning Portfolio in Minutes
+      </h1>
+      <p class="mb-8 leading-relaxed text-lg text-gray-700">
+        Bring your ideas to life with a beautiful portfolio that speaks for
+        itself. Let your creativity shine and get started today. Your story
+        deserves to be shared with the world, effortlessly!
+      </p>
+      <div class="flex justify-center">
+        <a
+          href="{% url 'account_signup' %}"
+          class="relative inline-block px-8 py-3 text-white bg-gray-800 rounded-md overflow-hidden transition-all duration-300 ease-in-out hover:bg-gray-700 active:scale-90 active:bg-gray-600 shadow-lg hover:shadow-xl transform hover:-translate-y-1"
+        >
+          <span class="relative z-10 flex items-center gap-2 text-lg">
+            Create Your Portfolio
+            <!-- Arrow with Button-wide Hover Animation -->
+            <span
+              class="transform transition-transform duration-300"
+              style="transition-property: transform"
+            >
+              →
+            </span>
+          </span>
+          <span
+            class="absolute inset-0 bg-gray-700 transition-transform transform -translate-x-full hover:translate-x-0 duration-300 ease-in-out"
+          ></span>
+        </a>
+      </div>
+    </div>
+
+    <!-- Right Side: Gallery Section -->
+    <section class="text-gray-600 body-font">
+      <div class="container px-5 py-24 mx-auto flex flex-wrap">
+        <div class="flex flex-wrap md:-m-2 -m-1">
+          <!-- First Row: Gallery Images -->
+          <div class="flex flex-wrap w-1/2">
+            <div
+              class="md:p-2 p-1 w-1/2 transform transition-transform duration-500 hover:scale-105"
+              style="will-change: transform"
+            >
+              <img
+                alt="gallery"
+                class="w-full object-cover h-full object-center block rounded-lg"
+                src="{% static 'images/hero_gallery/image4.png' %}"
+              />
+            </div>
+            <div
+              class="md:p-2 p-1 w-1/2 transform transition-transform duration-500 hover:scale-105"
+              style="will-change: transform"
+            >
+              <img
+                alt="gallery"
+                class="w-full object-cover h-full object-center block rounded-lg"
+                src="{% static 'images/hero_gallery/image5.jpg' %}"
+              />
+            </div>
+            <div
+              class="md:p-2 p-1 w-full transform transition-transform duration-500 hover:scale-105"
+              style="will-change: transform"
+            >
+              <img
+                alt="gallery"
+                class="w-full h-full object-cover object-center block rounded-lg"
+                src="{% static 'images/hero_gallery/image1.png' %}"
+              />
+            </div>
+          </div>
+          <!-- Second Row: Gallery Images -->
+          <div class="flex flex-wrap w-1/2">
+            <div
+              class="md:p-2 p-1 w-full transform transition-transform duration-500 hover:scale-105"
+              style="will-change: transform"
+            >
+              <img
+                alt="gallery"
+                class="w-full h-full object-cover object-center block rounded-lg"
+                src="{% static 'images/hero_gallery/image2.png' %}"
+              />
+            </div>
+            <div
+              class="md:p-2 p-1 w-1/2 transform transition-transform duration-500 hover:scale-105"
+              style="will-change: transform"
+            >
+              <img
+                alt="gallery"
+                class="w-full object-cover h-full object-center block rounded-lg"
+                src="{% static 'images/hero_gallery/image6.jpg' %}"
+              />
+            </div>
+            <div
+              class="md:p-2 p-1 w-1/2 transform transition-transform duration-500 hover:scale-105"
+              style="will-change: transform"
+            >
+              <img
+                alt="gallery"
+                class="w-full object-cover h-full object-center block rounded-lg"
+                src="{% static 'images/hero_gallery/image3.png' %}"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+</section>
+
+{% comment %} Features {% endcomment %}
+{% include 'Home/includes/features.html' %}
+
+{% comment %} Counter {% endcomment %}
+{% include 'Home/includes/counter.html' %}
+
+{% endblock %}
+
+{% block scripts %}
+
+<script>
+  AOS.init({
+    duration: 1000, // Animation duration in milliseconds
+    once: true,     // Whether the animation should happen only once or every time
+  });
+</script>
+
+{% endblock %}
