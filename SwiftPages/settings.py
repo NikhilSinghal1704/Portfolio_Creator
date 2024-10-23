@@ -25,7 +25,8 @@ SECRET_KEY = 'django-insecure-3y668%1*9ymp*qp^wkhr%07r92#sm#luvcp+gw9flao)^6id&r
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
+SRF_TRUSTED_ORIGINS = ['https://swiftpages.nik-server.in', 'https://tastetailor1.pythonanywhere.com', 'http://swiftpages.nik-server.in']
 
 
 # Application definition
