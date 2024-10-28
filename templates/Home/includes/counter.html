@@ -1,72 +1,62 @@
+{% load static %}
+
 <!-- Counter Section -->
 <section
   id="counters-section"
-  class="w-full bg-gradient-to-r from-blue-50 via-blue-100 to-blue-50 py-24"
+  class="w-full bg-gradient-to-r from-blue-50 via-blue-100 to-blue-50 py-10"
 >
-  <div class="container mx-auto">
+  <div class="container mx-auto px-4">
     <!-- Title -->
     <h2
-      class="text-4xl font-extrabold text-gray-900 text-center mb-16 tracking-tight"
+      class="text-3xl font-extrabold text-gray-900 text-center mb-6 tracking-tight"
     >
       Swift Pages in Action
     </h2>
 
     <!-- Counters Grid -->
-    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-12">
+    <div class="grid grid-cols-2 sm:grid-cols-4 gap-4">
       <!-- Counter 1 -->
-      <div class="bg-white shadow-lg rounded-lg p-8">
-        <h3 class="text-lg font-semibold text-gray-600 mb-4">Themes in Play</h3>
-        <div
-          class="text-6xl font-extrabold text-blue-600 counter"
-          data-count="50"
-          id="themesCounter"
-        >
-          0
+      <div class="bg-white shadow-md rounded-md p-4 flex items-center space-x-4">
+        <!-- Icon -->
+        <img src="{% static "images/counter/template.png" %}" alt="Themes Icon" class="h-10 w-10 object-contain" />
+        <!-- Text Content -->
+        <div class="flex flex-col items-start">
+          <div class="text-4xl font-extrabold text-blue-600 counter" data-count="50" id="themesCounter">0</div>
+          <h3 class="text-sm font-semibold text-gray-600">Themes in Play</h3>
         </div>
-        <!-- Counter -->
       </div>
 
       <!-- Counter 2 -->
-      <div class="bg-white shadow-lg rounded-lg p-8">
-        <h3 class="text-lg font-semibold text-gray-600 mb-4">
-          Portfolios in Action
-        </h3>
-        <div
-          class="text-6xl font-extrabold text-blue-600 counter"
-          data-count="1200"
-          id="portfoliosCounter"
-        >
-          0
+      <div class="bg-white shadow-md rounded-md p-4 flex items-center space-x-4">
+        <!-- Icon -->
+        <img src="{% static "images/counter/resume.png" %}" alt="Portfolios Icon" class="h-10 w-10 object-contain" />
+        <!-- Text Content -->
+        <div class="flex flex-col items-start">
+          <div class="text-4xl font-extrabold text-blue-600 counter" data-count="1200" id="portfoliosCounter">0</div>
+          <h3 class="text-sm font-semibold text-gray-600">Portfolios in Action</h3>
         </div>
-        <!-- Counter -->
       </div>
 
       <!-- Counter 3 -->
-      <div class="bg-white shadow-lg rounded-lg p-8">
-        <h3 class="text-lg font-semibold text-gray-600 mb-4">Users Onboard</h3>
-        <div
-          class="text-6xl font-extrabold text-blue-600 counter"
-          data-count="3000"
-          id="usersCounter"
-        >
-          0
+      <div class="bg-white shadow-md rounded-md p-4 flex items-center space-x-4">
+        <!-- Icon -->
+        <img src="{% static "images/counter/man.png" %}" alt="Users Icon" class="h-10 w-10 object-contain" />
+        <!-- Text Content -->
+        <div class="flex flex-col items-start">
+          <div class="text-4xl font-extrabold text-blue-600 counter" data-count="3000" id="usersCounter">0</div>
+          <h3 class="text-sm font-semibold text-gray-600">Users Onboard</h3>
         </div>
-        <!-- Counter -->
       </div>
 
       <!-- Counter 4 -->
-      <div class="bg-white shadow-lg rounded-lg p-8">
-        <h3 class="text-lg font-semibold text-gray-600 mb-4">
-          Live Portfolios
-        </h3>
-        <div
-          class="text-6xl font-extrabold text-blue-600 counter"
-          data-count="900"
-          id="liveCounter"
-        >
-          0
+      <div class="bg-white shadow-md rounded-md p-4 flex items-center space-x-4">
+        <!-- Icon -->
+        <img src="{% static "images/counter/monitor.png" %}" alt="Live Portfolios Icon" class="h-10 w-10 object-contain" />
+        <!-- Text Content -->
+        <div class="flex flex-col items-start">
+          <div class="text-4xl font-extrabold text-blue-600 counter" data-count="900" id="liveCounter">0</div>
+          <h3 class="text-sm font-semibold text-gray-600">Live Portfolios</h3>
         </div>
-        <!-- Counter -->
       </div>
     </div>
   </div>
