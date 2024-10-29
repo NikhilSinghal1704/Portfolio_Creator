@@ -6,6 +6,7 @@ from django_cleanup import cleanup
 class Profile(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
     image = models.ImageField(upload_to='profile_pics/')
+    phone_no = models.IntegerField(null=True, blank=True)
     info = models.TextField(null=True, blank=True)
 
     def __str__(self):
